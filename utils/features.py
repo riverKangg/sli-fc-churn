@@ -1,6 +1,6 @@
 target_variable = 'y'
-feature_categories = ['귀점', '조회', '상설', '총동의', '사랑온', '통합보장', '환산']
 category_values = ['당월', '직3']
+feature_categories = ['귀점', '조회', '상설', '총동의', '사랑온', '통합보장', '환산']
 
 def generate_combined_feature_names(categories, features):
     combined_names = []

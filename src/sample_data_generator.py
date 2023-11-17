@@ -4,7 +4,6 @@ import pandas as pd
 
 from utils import *
 
-
 class DataGenerator:
     def __init__(self, num_samples=1000, yyyymm='202304'):
         """
@@ -37,7 +36,7 @@ class DataGenerator:
 
     def generate_variable_data(self):
         for feature in feature_names:
-            self.df[feature] = [random.uniform(-1, 1) for _ in range(self.num_samples)]
+            self.df[f'{feature}_{self.yyyymm}'] = [random.uniform(-1, 1) for _ in range(self.num_samples)]
 
     def save_data_to_csv(self, filepath=data_path):
         """
@@ -63,6 +62,11 @@ class DataGenerator:
 
 if __name__ == "__main__":
     data_generator = DataGenerator(num_samples=500, yyyymm='202211')
+    data_generator.generate_key_data()
+    data_generator.generate_variable_data()
+    data_generator.save_data_to_csv()
+
+    data_generator = DataGenerator(num_samples=500, yyyymm='202304')
     data_generator.generate_key_data()
     data_generator.generate_variable_data()
     data_generator.save_data_to_csv()
